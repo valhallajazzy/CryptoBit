@@ -101,7 +101,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nft',
-        'USER': 'valentin',
+        'USER': 'vale',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
