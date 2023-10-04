@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cryptobit"
+version = "0.1.0"
+description = ""
+authors = ["valhallajazzy <valhallajazzy@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.5"
+djangorestframework = "^3.14.0"
+django-cors-headers = "^4.2.0"
+psycopg2-binary = "^2.9.7"
+djangorestframework-simplejwt = "^5.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

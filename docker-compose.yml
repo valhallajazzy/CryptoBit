@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  db_auth:
+    image: postgres:16-alpine
+    container_name: db_cryptobit
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=vale
+      - POSTGRES_PASSWORD=1234
