@@ -1,6 +1,6 @@
-Todo/node_modules
+.Todo/node_modules/
 .poetry.lock
 .venv
 .idea
-Todo/.git
+.Todo/.git
 
