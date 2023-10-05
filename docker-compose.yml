@@ -1,11 +1,15 @@
 version: '3.5'
 
 services:
-  db_auth:
+  db:
+    restart: always
     image: postgres:16-alpine
-    container_name: db_cryptobit
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_USER=vale
       - POSTGRES_PASSWORD=1234
+    container_name: db_cryptobit
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    ports:
+      - 5432:5432
