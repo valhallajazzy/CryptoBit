@@ -14,8 +14,7 @@ const NavList = () => {
     <div className='bg-zinc-900 h-screen'>
       <nav className='text-left '>
       {list.map(l => (
-        reduxName = l.reduxName,
-        <NavItem key={l.path} name={l.name} numbers={useSelector(state => state.[reduxName].[reduxName]).length} />
+        <NavItem key={l.path} name={l.name} numbers={useSelector(state => state.todos.todos).length} />
       ))}
       </nav>
     </div>
