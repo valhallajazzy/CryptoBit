@@ -21,3 +21,12 @@
 #### Start server
 
         python manage.py runserver
+```
+#### Install neccesary dependencies
+```
+        yarn
+
+#### Launch the server
+
+        yarn dev
+
