@@ -9,4 +9,15 @@
 ```
         poetry install
 
+#### Init the project dependencies
 
+        poetry shell
+        
+#### Makemigrations for db
+        
+        python manage.py makemigrations
+        python manage.py migrate
+        
+#### Start server
+
+        python manage.py runserver
