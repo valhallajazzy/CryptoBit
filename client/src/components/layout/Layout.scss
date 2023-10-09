@@ -1,0 +1,28 @@
+
+html{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  min-width: 320px;
+  color: #fff;
+  background-color:  #101824;
+  
+}
+
+.containers{
+  display: flex;
+  justify-content: center;
+}
+
+.sideBlock{
+  position: absolute;  
+  left: 0;
+  top: 0;
+  height: 100vh;
+  padding-top: 20px;
+
+}
+
+.children{
+  padding-top: 20px;
+  width: 560px;
+}
