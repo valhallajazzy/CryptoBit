@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../ui/Loader'
-import axios from '../../../api/axios'
 
 const Auth = () => {
   
@@ -28,7 +27,7 @@ const Auth = () => {
 
 const  onSubmit = async (data) => {
   try{
-    const response = await axios.post(LOGIN_URL, data, {
+    const response = await axios.post('http://127.0.0.1:8000/api/v1/login', data, {
       headers:{ 'Content-Type': 'application/json' },
       withCredentials: true
     } )
@@ -38,15 +37,7 @@ const  onSubmit = async (data) => {
     console.log(accessToken);
     console.log(refreshToken);
   }catch (err){
-    if (!err.response) {
-      setErrMsg('No server Response')
-    } else if (err.response?.status === 400) {
-      setErrMsg('Missing Username or Password')
-    } else if (err.response?.status === 401){
-      setErrMsg('Unauthorized')
-    }else {
-      setErrMsg('Login Failed')
-    }
+
   }
   reset()
 

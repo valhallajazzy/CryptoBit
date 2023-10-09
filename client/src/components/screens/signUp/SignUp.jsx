@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../ui/Loader'
-import axios from '../../../api/axios'
+import axios from 'axios'
+
 
 const SignUp = () => {
   
@@ -21,28 +22,13 @@ const SignUp = () => {
   })
 
 
-
-
-  const REGISTER_URL = '/register'
-
   const  onSubmit = async (data) => {
     try{
-      const response = await axios.post(REGISTER_URL, data, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true
-      })
+      const response = await axios.post('http://127.0.0.1:8000/api/v1/register', data)
       console.log(data);
       console.log(response.data);
     }catch (err) {
-      if (!err?.response) {
-        setErrMsg('No server response')
-      }else if (err.response?.status === 400) {
-        setErrMsg('Username Taken')
-      }else {
-        setErrMsg('Registration failed')
-      }
+
     }
     reset()
   }
