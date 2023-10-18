@@ -4,26 +4,15 @@ import cn from 'classnames'
 import { changeTodo } from "../../../store/todoSlice"
 import { removeTodo } from "../../../store/todoSlice"
 import { useDispatch } from "react-redux"
-import { useState } from "react"
 
 const TodoItem = ({todo, id}) => {
 
   const dispatch = useDispatch()
 
-  const [ContextMenu, setContextMenu] = useState({
-    position: {
-      x:0,
-      y:0
-    },
-    toggled: false
-  })
-
-  const handleOnContextMenu = (e, id) =>{
-    e.preventDefault()
-  }
-
+  let handleRightClick = ''
+  
   return (
-    <div onContextMenu={(e, id) => handleOnContextMenu(e, id)} className="bg-gray-800 rounded-xl p-1.5 items-center mb-3 flex justify-between  ">
+    <div onContextMenu={(id) => handleRightClick = id}   className="bg-gray-800 rounded-xl p-1.5 items-center mb-3 flex justify-between  ">
       <div className="flex">
         <button className="w-6 mr-2 " onClick={() => dispatch(changeTodo({id}))}>
 
@@ -38,7 +27,7 @@ const TodoItem = ({todo, id}) => {
       <button onClick={() => dispatch(removeTodo({id}))}>
         <AiOutlineClose/>
       </button>
-      
+
     </div>
   )
 }
