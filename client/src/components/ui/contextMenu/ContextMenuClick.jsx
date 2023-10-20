@@ -19,6 +19,7 @@ const ContextMenuClick = ({ContextMenu, id, setContextMenu}) => {
         Mark as important
        </button>
        <button className='block mb-1'>
+       <AiOutlineStar style={{fontSize: '24px', marginRight: '10px'}}/>
         Mark as completed
        </button>
        <hr></hr>
