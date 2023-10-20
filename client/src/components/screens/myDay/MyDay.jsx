@@ -4,11 +4,6 @@ import TodoItem from '../../ui/todoItem/TodoItem'
 import CreateTodoItem from '../../ui/createTodoItem/CreateTodoItem'
 import CompletedList from '../../ui/completedList/CompletedList'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
-import ContextMenuClick from '../../ui/contextMenu/ContextMenuClick'
-import handleRightClick from '../../ui/todoItem/TodoItem' 
-import {useOnClickOutside} from '../../../hooks/useClickOutside/useOnClickOutside'
-
 
 let today = new Date();
 let options = { weekday: 'long', month: 'long', day: 'numeric' };
@@ -21,31 +16,6 @@ const MyDay = () => {
 
   const filteredTodos = todos.filter(todo => todo.isCompleted === true)
   
-  const [ContextMenu, setContextMenu] = useState({
-    isShow: false,
-    position: {
-      x:0,
-      y:0
-    }
-  })
-
-  const handleOnContextMenu = (e) => {
-    e.preventDefault()
-    const {pageX, pageY} = e
-    setContextMenu({
-      isShow: true,
-      position: {
-        x:pageX,
-        y:pageY
-      }
-    })
-  }
-
-  let ref = useOnClickOutside(() => {
-    setContextMenu({isShow:false})
-  })
-
-
   return (
     <Layout> 
       <div>
@@ -57,9 +27,7 @@ const MyDay = () => {
 
           <div  className={styles.todoComponent}>
           {todos.filter(todo => todo.isCompleted === false).map(todo =>(
-            <div ref={ref} onContextMenu={(e) => handleOnContextMenu(e)}>
-              <TodoItem key={todo.id} todo={todo} id={todo.id} />
-            </div>
+            <TodoItem key={todo.id} todo={todo} id={todo.id} />
           ))}
           {filteredTodos.length > 0 &&
           <CompletedList  filteredTodos={filteredTodos} />
@@ -69,8 +37,7 @@ const MyDay = () => {
           <div className='absolute bottom-0 mb-10 w-[560px]'>
           <CreateTodoItem important={false} planned={''}/>
           </div> 
-          {ContextMenu.isShow && <ContextMenuClick ContextMenu={ContextMenu} id={handleRightClick} />}
-          </div>
+        </div>
     </Layout>
   )
 }
