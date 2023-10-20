@@ -13,7 +13,7 @@ const todoSlice =  createSlice({
         id: nanoid(6),
         title: action.payload.title,
         isCompleted: false,
-        important: action.payload.important,
+        isImportant: action.payload.isImportant,
         planned:  action.payload.planned
       })
     },
@@ -23,10 +23,14 @@ const todoSlice =  createSlice({
     changeTodo(state, action) {
       const changeTodo = state.todos.find(todo => todo.id === action.payload.id);
       changeTodo.isCompleted = !changeTodo.isCompleted;
+    }, 
+    importantTodo(state, action){
+      const importantTodo = state.todos.find(todo => todo.id === action.payload.id);
+      importantTodo.isImportant = !importantTodo.isImportant;
     }
   }
 })
 
-export const {addTodo, removeTodo, changeTodo} = todoSlice.actions;
+export const {addTodo, removeTodo, changeTodo, importantTodo} = todoSlice.actions;
 
 export default todoSlice.reducer

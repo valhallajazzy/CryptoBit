@@ -19,7 +19,6 @@ const MyDay = () => {
   return (
     <Layout> 
       <div>
-
           <div className='mb-8 '>
             <h1 className='text-3xl font-bold mb-1 '>My day </h1>
             <h2 className='font-normal text-xl'>{now}</h2>
@@ -35,7 +34,7 @@ const MyDay = () => {
           </div>
 
           <div className='absolute bottom-0 mb-10 w-[560px]'>
-          <CreateTodoItem important={false} planned={''}/>
+          <CreateTodoItem  planned={''} isImportant={false}/>
           </div> 
         </div>
     </Layout>

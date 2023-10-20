@@ -19,14 +19,14 @@ const Important = () => {
       </div>
 
       <div className={styles.todoComponent}>
-        {todos.filter(todo => todo.isCompleted === false && todo.important === true ).map(todo =>(
+        {todos.filter(todo => todo.isCompleted === false && todo.isImportant === true ).map(todo =>(
           <TodoItem key={todo.id} todo={todo} id={todo.id} />
         ))}
 
       </div>
 
       <div className='absolute bottom-0 mb-10 w-[560px]'>
-      <CreateTodoItem important={true} planned={''}/>
+      <CreateTodoItem isImportant={true} planned={''}/>
       </div> 
       
     </Layout>

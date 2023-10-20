@@ -1,8 +1,9 @@
-import { AiOutlineClose } from "react-icons/ai"
+import { AiOutlineStar } from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai"
 import Check from "../check/Check"
 import cn from 'classnames'
 import { changeTodo } from "../../../store/todoSlice"
-import { removeTodo } from "../../../store/todoSlice"
+import { importantTodo } from "../../../store/todoSlice"
 import { useDispatch } from "react-redux"
 import ContextMenuClick from "../contextMenu/ContextMenuClick"
 import { useState } from "react"
@@ -44,10 +45,17 @@ const handleOnContextMenu = (e) => {
         })}>{todo.title}</span>
       </div>
       
-      <button onClick={() => dispatch(removeTodo({id}))}>
-        <AiOutlineClose/>
-      </button>
-      {ContextMenu.isShow && <ContextMenuClick ContextMenu={ContextMenu} setContextMenu= {setContextMenu} />}
+      {todo.isImportant ?
+        <button onClick={() => dispatch(importantTodo({id}))}>
+          <AiFillStar fill="white"/>
+        </button>
+        :
+        <button onClick={() => dispatch(importantTodo({id}))}>
+          <AiOutlineStar/>
+        </button>
+      }
+      
+      {ContextMenu.isShow && <ContextMenuClick ContextMenu={ContextMenu} setContextMenu= {setContextMenu} id={id} />}
 
     </div>
   )

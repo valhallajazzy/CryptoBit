@@ -1,0 +1,22 @@
+
+
+menu > button {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  width: 100%;
+  :hover{
+    background-color: #212832 ;
+  }
+}
+menu > button:last-child {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  width: 100%;
+  color: #e44c4c;
+  margin-top: 1px;
+  :hover{
+    background-color: #212832 ;
+  }
+}

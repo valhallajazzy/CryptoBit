@@ -3,14 +3,14 @@ import {AiOutlinePlus} from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../../../store/todoSlice'
 
-const CreateTodoItem = ({important, planned}) => {
+const CreateTodoItem = ({isImportant, planned}) => {
 
   const [title, setTitle] = useState('')
 
   const dispatch = useDispatch()
 
   const addTask = () => {
-    dispatch(addTodo({title, important, planned}))
+    dispatch(addTodo({title, isImportant, planned}))
     setTitle('')
   }
 
