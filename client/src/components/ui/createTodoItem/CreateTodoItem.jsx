@@ -16,7 +16,7 @@ const CreateTodoItem = ({isImportant, planned}) => {
 
   return (
     <div className=' flex border-2 rounded-xl ' >
-      <input className=' mx-3 py-1 bg-transparent w-11/12'
+      <input className=' mx-3 py-1 bg-transparent w-11/12 outline-none'
       type='text'
       placeholder='Add a task'
       onChange={e => setTitle(e.target.value)}

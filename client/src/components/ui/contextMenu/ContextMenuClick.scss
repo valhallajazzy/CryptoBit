@@ -5,7 +5,7 @@ menu > button {
   align-items: center;
   padding: 10px 10px;
   width: 100%;
-  :hover{
+  &:hover{
     background-color: #212832 ;
   }
 }
@@ -16,7 +16,8 @@ menu > button:last-child {
   width: 100%;
   color: #e44c4c;
   margin-top: 1px;
-  :hover{
+
+  &:hover{
     background-color: #212832 ;
   }
 }

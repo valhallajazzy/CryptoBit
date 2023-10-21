@@ -11,7 +11,7 @@ const NavList = () => {
 
 
   return (
-    <div className='bg-[#10151d] h-screen '>
+    <div className='bg-[#10151d] h-screen rounded-xl '>
       <nav className='text-left px-3  '>
         <ul>
           <li onClick={() => navigate('/myday')}>
