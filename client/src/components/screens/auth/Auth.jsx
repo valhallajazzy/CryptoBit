@@ -19,33 +19,17 @@ const Auth = () => {
     mode: 'onBlur'
   })
 
+  const  onSubmit = async (data) => {
+    try{
 
 
+    }catch (err){
 
-
-  const LOGIN_URL = '/login'
-
-const  onSubmit = async (data) => {
-  try{
-    const response = await axios.post('http://127.0.0.1:8000/api/v1/login', data, {
-      headers:{ 'Content-Type': 'application/json' },
-      withCredentials: true
-    } )
-    console.log(JSON.stringify(response?.data));
-    const accessToken = response?.data?.token
-    const refreshToken = response?.data?.refreshToken
-    console.log(accessToken);
-    console.log(refreshToken);
-  }catch (err){
-
+    }
+    reset()
+    
   }
-  reset()
 
-
-
-
-  
-}
   return (
     <div className='flex justify-center mt-52' >
       <div>
@@ -56,7 +40,7 @@ const  onSubmit = async (data) => {
         {isLoading && <Loader/>}
         <h2 className='ml-3 text-2xl mb-3'>Sign In</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8  text-black'
+          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8 text-black outline-none'
           type='email' 
           placeholder='Enter your email'
           {...register('username', {
@@ -67,7 +51,7 @@ const  onSubmit = async (data) => {
             }
           })}
           />
-          <input className='block mx-auto px-1 mb-7 text-lg w-60 h-8   text-black'
+          <input className='block mx-auto px-1 mb-7 text-lg w-60 h-8 text-black outline-none'
           type='password' 
           placeholder='Enter your password'
           {...register('password', {

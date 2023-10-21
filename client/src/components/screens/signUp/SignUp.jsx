@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../ui/Loader'
-import axios from 'axios'
 
 
 const SignUp = () => {
@@ -24,16 +23,12 @@ const SignUp = () => {
 
   const  onSubmit = async (data) => {
     try{
-      const response = await axios.post('http://127.0.0.1:8000/api/v1/register', data)
-      console.log(data);
-      console.log(response.data);
+
     }catch (err) {
 
     }
     reset()
   }
-
-  
 
   return (
     <div className='flex  justify-center mt-52 '>
@@ -45,7 +40,7 @@ const SignUp = () => {
         {isLoading && <Loader/>}
         <h2 className=' text-2xl mb-3 w-15'>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8  text-black'
+          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8 text-black outline-none'
           type='email' 
           placeholder='Enter your email'
           {...register('username', {
@@ -56,7 +51,7 @@ const SignUp = () => {
             }
           })}
           />
-          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8  text-black'
+          <input className='block mx-auto px-1 mb-5 text-lg w-60 h-8 text-black outline-none'
           type='password' 
           placeholder='Enter your password'
           {...register('password', {
