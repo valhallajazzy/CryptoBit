@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../ui/Loader'
+import instance from '../../../api/api'
 
 
 const SignUp = () => {
@@ -8,6 +9,8 @@ const SignUp = () => {
   const isLoading = false
 
   const navigate = useNavigate()
+
+  let showError = ''
 
   const {register,
     formState: {
@@ -23,12 +26,25 @@ const SignUp = () => {
 
   const  onSubmit = async (data) => {
     try{
+      let response = await instance.post('/register', data)
+      console.log(response)
+      if (response.status === 200){
+        navigate('/auth')
+      }
 
     }catch (err) {
+      if (err.response.status === 400){
+        console.log('Такой email уже используется');
+        showError = 'Такой email уже используется'
+        
+      }else{
+        console.log('Ошибка');
+      }
 
     }
     reset()
   }
+
 
   return (
     <div className='flex  justify-center mt-52 '>
@@ -62,13 +78,14 @@ const SignUp = () => {
             }
           })}
           />
+          
           <div className='text-red-700 text-lg mb-2  '>
-            {(errors?.username || errors?.password)  && <p>{(errors?.username?.message || errors?.password?.message) || "Error"}</p>}
+          {(errors?.username || errors?.password )  && <p>{(errors?.username?.message || errors?.password?.message ) || "Error"}</p> }
           </div>
 
           <div className='flex gap-2 justify-center  '>
           <button onClick={() => navigate('/auth')} className='bg-zinc-500 px-5 py-1 hover:bg-zinc-700' type='button'>Back</button>
-          <button  className='bg-sky-900 px-5 py-1 hover:bg-sky-950' type='submit' disabled={!isValid} >Log in</button>
+          <button  className='bg-sky-900 px-5 py-1 hover:bg-sky-950' type='submit' disabled={!isValid} >Sign up</button>
 
           </div>
         </form>
