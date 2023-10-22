@@ -27,6 +27,7 @@ const CreateTodoItem = ({isImportant, planned}) => {
       {title &&
         <button className='bg-pink-600 w-1/12 flex justify-center items-center rounded-r-xl' type='button' onClick={addTask} > <AiOutlinePlus/> </button>
       }
+      
     </div>
   )
 }

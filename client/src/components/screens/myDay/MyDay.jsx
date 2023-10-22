@@ -5,6 +5,9 @@ import CreateTodoItem from '../../ui/createTodoItem/CreateTodoItem'
 import CompletedList from '../../ui/completedList/CompletedList'
 import { useSelector } from 'react-redux'
 
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react'
+
 let today = new Date();
 let options = { weekday: 'long', month: 'long', day: 'numeric' };
 let now = today.toLocaleString('en-US', options);
@@ -16,9 +19,12 @@ const MyDay = () => {
 
   const filteredTodos = todos.filter(todo => todo.isCompleted === true)
   
+  const [startDate, setStatDate] = useState(new Date());
+
+
   return (
     <Layout> 
-      <div>
+
           <div className='mb-8 '>
             <h1 className='text-3xl font-bold mb-1 '>My day </h1>
             <h2 className='font-normal text-xl'>{now}</h2>
@@ -36,7 +42,7 @@ const MyDay = () => {
           <div className='absolute bottom-0 mb-10 w-[560px]'>
           <CreateTodoItem  planned={''} isImportant={false}/>
           </div> 
-        </div>
+
     </Layout>
   )
 }

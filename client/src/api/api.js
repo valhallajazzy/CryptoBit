@@ -4,6 +4,6 @@ const instance = axios.create({
   baseURL: 'http://127.0.0.1:8000/api/v1'
 })
 
-instance.defaults.headers.common['Authorization'] = 'Bearer '
+instance.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
 
 export default instance

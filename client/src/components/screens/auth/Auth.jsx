@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../../ui/Loader'
+import instance from '../../../api/api'
 
 const Auth = () => {
   
@@ -21,13 +22,14 @@ const Auth = () => {
 
   const  onSubmit = async (data) => {
     try{
+      let response = await instance.post('/login', data)
+      console.log(response)
 
 
-    }catch (err){
-
+    }catch (err) {
+      console.log(err);
     }
     reset()
-    
   }
 
   return (
