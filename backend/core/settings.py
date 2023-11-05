@@ -103,7 +103,7 @@ DATABASES = {
         'NAME': 'nft',
         'USER': 'vale',
         'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
